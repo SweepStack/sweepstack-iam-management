@@ -1,2 +1,5 @@
-# for validation, formatting, and security checks
-# no apply until fully validated
+provider "aws" {
+  region = local.region
+}
+
+provider "hcp" {}
