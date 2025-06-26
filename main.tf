@@ -1,5 +1,6 @@
 terraform {
   cloud {
+    organization = "sweepstack-alpha"
     workspaces {
       name = local.workspace_name
     }
@@ -7,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~>5.9.0"
+      version = "~>5.0.0"
     }
     hcp = {
       source  = "hashicorp/hcp"
