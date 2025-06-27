@@ -50,10 +50,11 @@ jobs:
         with:
           organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
+          directory: "./"
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
         with:
           organization: "sweepstack-alpha"
-          workspace: "sweepstack-iam-management" # Change for your iam-management repo
+          workspace: "sweepstack-iam-management"
