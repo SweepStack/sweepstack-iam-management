@@ -56,5 +56,6 @@ jobs:
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
         with:
+          organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
           configuration_version: ${{steps.apply-upload.outputs.configuration_version_id}}
