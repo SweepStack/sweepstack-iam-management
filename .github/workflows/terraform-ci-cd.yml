@@ -44,18 +44,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Upload Configuration
-        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: apply-upload
-        with:
-          organization: "sweepstack-alpha"
-          workspace: "sweepstack-iam-management"
-          directory: "./"
+      #   - name: Upload Configuration
+      #     uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+      #     id: apply-upload
+      #     with:
+      #       organization: "sweepstack-alpha"
+      #       workspace: "sweepstack-iam-management"
+      #       directory: "./"
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
         with:
+          token: ${{env.TF_API_TOKEN}}
           organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
-          configuration_version: ${{steps.apply-upload.outputs.configuration_version_id}}
+        #   configuration_version: steps.apply-upload.outputs.configuration_version_id
