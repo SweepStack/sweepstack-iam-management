@@ -44,6 +44,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Checkout Code"
+        uses: actions/checkout@v4
+
       - name: "Display path"
         run: |
           echo "DIR: "
@@ -58,7 +61,7 @@ jobs:
         with:
           organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
-          directory: "../"
+          directory: "./"
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
