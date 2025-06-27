@@ -54,14 +54,6 @@ jobs:
       - name: "Checkout Code"
         uses: actions/checkout@v4
 
-      - name: Upload Configuration
-        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: apply-upload
-        with:
-          organization: "sweepstack-alpha"
-          workspace: "sweepstack-iam-management"
-          directory: "./"
-
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
@@ -69,4 +61,3 @@ jobs:
           organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
           message: ${{github.event.head_commit.message}} # This uses the GH commit as the HCP run subject
-          configuration_version: steps.apply-upload.outputs.configuration_version_id
