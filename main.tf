@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "sweepstack-alpha"
     workspaces {
-      name = local.workspace_name
+      name = "sweepstack-iam-management"
     }
   }
   required_providers {
