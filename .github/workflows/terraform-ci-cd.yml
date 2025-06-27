@@ -4,7 +4,14 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "**.md"
+      - ".gitignore"
+
   pull_request:
+    paths-ignore:
+      - "**.md"
+      - ".gitignore"
 
 env:
   TF_API_TOKEN: "${{secrets.HCP_API_TOKEN}}"

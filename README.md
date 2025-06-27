@@ -23,7 +23,3 @@ The credentials for every user managed by this repository are securely and autom
 
 * **Frequency of Changes:** This code should only change when onboarding a new project or adjusting the core permissions for an existing project.
 * **DO NOT** add any application-specific infrastructure (e.g., S3 buckets, EC2 instances) to this repository. Its scope is strictly limited to IAM management for the Terraform pipelines.
-
-# TODO  
-
-* Update the repo to include the GH Action that would run validation, formatting, and only trigger a terraform plan when all checks have been cleared.
