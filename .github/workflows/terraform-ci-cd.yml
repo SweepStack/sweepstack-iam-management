@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+env:
+  TF_API_TOKEN: "${{secrets.HCP_API_TOKEN}}"
+
 jobs:
   # This job runs CI checks on all pushes and PRs.
   ci_checks:
@@ -18,8 +21,6 @@ jobs:
 
       - name: "Setup Terraform"
         uses: hashicorp/setup-terraform@v3
-        with:
-          cli_config_credentials_token: ${{ secrets.HCP_API_TOKEN }}
 
       - name: "Terraform Format Check"
         id: fmt
@@ -41,11 +42,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Trigger Terraform Cloud Run"
-        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+      - name: Upload Configuration
+        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+        id: apply-upload
         with:
-          token: ${{ secrets.HCP_API_TOKEN }}
+          organization: "sweepstack-alpha"
+          workspace: "sweepstack-iam-management"
+          directory: "./"
 
-          # Your HCP organization and workspace names
+      - name: Create Apply Run
+        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+        id: apply-run
+        with:
           organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management" # Change for your iam-management repo
