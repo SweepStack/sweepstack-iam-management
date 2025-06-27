@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - name: "Trigger Terraform Cloud Run"
-        uses: hashicorp/tfc-run@v1
+        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         with:
           token: ${{ secrets.HCP_API_TOKEN }}
 
