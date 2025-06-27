@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "cognito_policy_doc" {
       "cognito-idp:DeleteResourceServer",
       "cognito-idp:ListResourceServers"
     ]
-    resources = "*"
+    resources = ["*"]
     effect    = "Allow"
   }
 }

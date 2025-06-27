@@ -1,5 +1,5 @@
 resource "hcp_vault_secrets_app" "cognito_user_configuration" {
-  app_name    = "cognito_user_configuration"
+  app_name    = "cognito-user-configuration"
   description = "This is where the access key and secret key are for the Cognito IAM user is"
 }
 
