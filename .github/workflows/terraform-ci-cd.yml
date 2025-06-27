@@ -44,13 +44,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      #   - name: Upload Configuration
-      #     uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-      #     id: apply-upload
-      #     with:
-      #       organization: "sweepstack-alpha"
-      #       workspace: "sweepstack-iam-management"
-      #       directory: "./"
+      - name: "Display path"
+        run: |
+          echo "DIR: "
+          pwd
+          echo "---------------"
+          echo "Contents: "
+          ls -la
+
+      - name: Upload Configuration
+        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+        id: apply-upload
+        with:
+          organization: "sweepstack-alpha"
+          workspace: "sweepstack-iam-management"
+          directory: "../"
 
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
