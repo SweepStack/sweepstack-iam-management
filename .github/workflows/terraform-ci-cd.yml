@@ -44,6 +44,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      #DIAGNOSTICS
+      - name: "Diagnose: List Available Workspaces"
+        run: |
+          echo "Querying HCP API to list workspaces..."
+          curl \
+            --header "Authorization: Bearer ${{ secrets.HCP_API_TOKEN }}" \
+            "https://app.terraform.io/api/v2/organizations/sweepstack-alpha/workspaces" \
+            | jq .
+
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: apply-upload
