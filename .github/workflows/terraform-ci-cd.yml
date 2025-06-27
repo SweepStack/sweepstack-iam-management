@@ -50,7 +50,7 @@ jobs:
           pwd
           echo "---------------"
           echo "Contents: "
-          ls -la
+          ls
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
