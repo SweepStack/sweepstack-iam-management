@@ -48,7 +48,6 @@ jobs:
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: apply-upload
         with:
-          organization: "sweepstack-alpha"
           workspace: "sweepstack-iam-management"
           directory: "./"
 
